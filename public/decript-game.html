@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>密碼攔截戰 隨機取密碼</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid bg-dark p-2">
+            <div class="text-center p-3 text-white">
+                <span class="border border-white border-3 rounded p-1 display-3">密碼攔截戰 密碼機</span>
+            </div>
+        </div>
+    </header>
+    
+    <section>
+        <div class="container">
+            <div class="row justify-content-between align-items-center mt-5 mb-3">
+                <div class="col text-center">
+                    <p style="font-size: 10vh">1st</p><span class="number border border-dark border-5 rounded p-3" style="font-size: 20vh">1</span>
+                </div>
+                <div class="col text-center">
+                    <p style="font-size: 10vh">2nd</p><span class="number border border-dark border-5 rounded p-3" style="font-size: 20vh">2</span>
+                </div>
+                <div class="col text-center">
+                    <p style="font-size: 10vh">3rd</p><span class="number border border-dark border-5 rounded p-3" style="font-size: 20vh">3</span>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-center g-2 mt-5 p-3 mb-5">
+                <div class="col d-grid"><button class="btn btn-success fw-bold" style="font-size: 6vh" onclick="changeNumber(event)">設定密碼</button></div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container-fluid bg-light fixed-bottom mt-5">
+            <div class="text-center p-2">
+                <span>POWER&nbsp;&nbsp;BY&nbsp;&nbsp;Phoenix</span>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script>
+        const num = document.getElementsByClassName("number")
+
+        function changeNumber(e) {
+            let change = []
+            while (change.length < 3) {
+                r = Math.floor(Math.random() * 4) + 1
+                if (!change.includes(r) && r < 5) {
+                    change.push(r)
+                }
+            }
+
+            console.log(change)
+
+            for (let i = 0; i < num.length; i++) {
+                num[i].innerText = change[i]
+            }
+        }
+
+    </script>
+</body>
+
+</html>
